@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import EditorView from './components/EditorView/EditorView';
+import TabsView from './components/TabsView/TabsView'
+
+const db = {
+  user: 0,
+  views: [
+    {
+      name: "reactLogo",
+      active: true,
+      elements: [
+        {
+          name: "div",
+        },
+        {
+          name: "div",
+        },
+        {
+          name: "div",
+        },
+        {
+          name: "div",
+        },
+        {
+          name: "div",
+        }
+      ]
+    },
+    {
+      name: "loadingScreen"
+    }
+  ]
+}
 
 function App() {
+  const [ viewsDb, setViewsDb ] = useState(db.views)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-screen flex flex-col">
+      <TabsView views={viewsDb}/>
+      <EditorView view={viewsDb.filter(({ active }) => active && active === true)[0]}/>
     </div>
   );
 }
