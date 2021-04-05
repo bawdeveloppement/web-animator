@@ -35,8 +35,7 @@ const db = {
 function App() {
   const [ viewsDb, setViewsDb ] = useState(db.views)
   return (
-    <div className="h-screen flex flex-col">
-      <TabsView views={viewsDb}/>
+    <div className="h-full flex flex-col">
       <EditorView view={viewsDb.filter(({ active }) => active && active === true)[0]}/>
     </div>
   );
