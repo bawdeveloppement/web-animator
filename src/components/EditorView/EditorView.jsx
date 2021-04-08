@@ -32,23 +32,15 @@ export default function EditorView({ view }) {
             <Suspense fallback={<div className="flex flex-col border-r border-gray-300 overflow-auto items-center justify-center" style={{ minWidth: 200}}>Loading</div>}>
                 <ListElementsView elements={view.elements} />
             </Suspense>
-            <div
-                className="flex-1 flex flex-col overflow-auto"
-                style={{
-                    background: '#FFF',
-                    backgroundImage: 'linear-gradient(rgba(100, 100, 100, .1) .1em, transparent .1em), linear-gradient(90deg, rgba(100, 100, 100, .1) .1em, transparent .1em)',
-                    backgroundSize: '1em 1em'
-            }}>
-                <Suspense fallback={<div>Loading</div>}>
-                    <EditorViewport />
-                </Suspense>
-            </div>
+            <Suspense fallback={<div>Loading</div>}>
+                <EditorViewport elements={view.elements}/>
+            </Suspense>
             <Suspense fallback={<div className="flex flex-col border-l border-gray-300 overflow-auto items-center justify-center" style={{ minWidth: 200}}>Loading</div>}>
                 <ElementPropertiesView />
             </Suspense>
         </div>
         <Suspense fallback={<div className="flex flex-col border-l border-gray-300 overflow-auto items-center justify-center" style={{ minHeight: 200}}>Loading</div>}>
-            <TimeLineEditor />
+            <TimeLineEditor elements={view.elements} />
         </Suspense>
     </>
 }

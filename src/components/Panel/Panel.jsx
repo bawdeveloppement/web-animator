@@ -1,8 +1,9 @@
 import { forwardRef, useMemo } from "react";
 
-const PanelHeader = ({ title }) => {
+const PanelHeader = ({ title, children }) => {
     return <div className="px-2">
         <span className="border-b-2 border-gray-600">{title}</span>
+        {children}
     </div>
 }
 
@@ -16,7 +17,9 @@ const Panel = forwardRef(
             borderLeft = false, 
             borderRight = false, 
             borderBottom = false, 
-            borderTop = false 
+            borderTop = false,
+            titleChidren,
+            childrenClass = "flex-1 overflow-auto px-2"
         }, 
         ref
     ) => {
@@ -32,8 +35,8 @@ const Panel = forwardRef(
             ])
         return (
             <div ref={ref} className={classNames} style={{ minWidth: width, minHeight: height }}>
-                <PanelHeader title={title}/>
-                <div className="flex-1 overflow-auto px-2">
+                { title && typeof(title) === "string" ? <PanelHeader title={title} /> : <>{title}</> }
+                <div className={childrenClass}>
                     {children}
                 </div>
             </div>

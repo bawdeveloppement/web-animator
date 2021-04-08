@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import EditorView from './components/EditorView/EditorView';
-import TabsView from './components/TabsView/TabsView'
 
 const db = {
   user: 0,
@@ -10,20 +9,20 @@ const db = {
       active: true,
       elements: [
         {
-          name: "div",
+          name: "spinner",
+          isSelected: false,
+          properties: {
+            type: "div",
+            id: "divel",
+            style: {
+              width: "200px",
+              height: "200px",
+              backgroundColor: "black"
+            }
+          },
+          keyframes: [],
+          timing: {}
         },
-        {
-          name: "div",
-        },
-        {
-          name: "div",
-        },
-        {
-          name: "div",
-        },
-        {
-          name: "div",
-        }
       ]
     },
     {

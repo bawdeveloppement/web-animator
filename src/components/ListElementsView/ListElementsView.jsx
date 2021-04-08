@@ -20,7 +20,7 @@ const ListElement = ({ name }) => {
     return (
         <div
             ref={thisRef}
-            className="cursor-pointer m-2 w-36">
+            className={`cursor-pointer m-2 w-36`}>
             { editMode ? <input defaultValue={name} className="w-36"/> : name }
         </div>
     );
