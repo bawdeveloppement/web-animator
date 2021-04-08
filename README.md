@@ -1,3 +1,6 @@
+# Web Animator IDE
+![Interface prototype](https://raw.githubusercontent.com/bawdeveloppement/web-animator/master/interface_prototype.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
