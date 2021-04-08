@@ -1,4 +1,7 @@
 # Web Animator IDE
+## Créer une animation css et transcrit en json pour l'utilisiation via Web_Animation_V1 
+### https://drafts.csswg.org/web-animations-1/
+Screenshot_Prototype: Exploration sur la strucuture de donnée
 ![Interface prototype](https://raw.githubusercontent.com/bawdeveloppement/web-animator/master/interface_prototype.png)
 
 # Getting Started with Create React App
