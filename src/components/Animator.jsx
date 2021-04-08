@@ -1,6 +1,6 @@
 import { cloneElement, useEffect, createRef, useState } from 'react'
 
-export const Animator = ({ keyframes, timing, handleClick, children }) => {
+export const Animator = ({ keyframes, timing, children }) => {
     const childrenRef = createRef();
     const element = cloneElement(children, { props: children.props, ref: childrenRef })
 
@@ -23,12 +23,7 @@ export const useAnimator = (ref, { keyframes, timing }) => {
             setAnimation(animation)
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    useEffect(() => {
-        console.log(animation);
-    })
-
+    }, []);
 
     return animation
 }
