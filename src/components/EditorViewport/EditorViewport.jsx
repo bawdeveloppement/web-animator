@@ -1,8 +1,9 @@
 import { createElement, useMemo } from "react";
+import { useRecoilValue } from "recoil";
+import { viewElementsState } from "../EditorView/EditorView";
 
 
 const ViewportElement = ({ name, properties }) => {
-    console.log(properties, name)
     return createElement(properties.type, {
         name: properties.name,
         id: properties.id,
@@ -10,11 +11,12 @@ const ViewportElement = ({ name, properties }) => {
     });
 }
 
-export default function EditorViewport ({ elements }) {
+export default function EditorViewport () {
+    const viewElements = useRecoilValue(viewElementsState);
 
     const viewportElements = useMemo(() => {
-        return elements.map(( el, id ) => <ViewportElement key={id} {...el} />)
-    }, [ elements ]);
+        return Object.keys(viewElements).map(( el, id ) => <ViewportElement key={id} {...viewElements[el]} />)
+    }, [ viewElements ]);
 
     return (
         <div

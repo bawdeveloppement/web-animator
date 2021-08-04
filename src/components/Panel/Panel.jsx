@@ -19,7 +19,7 @@ const Panel = forwardRef(
             borderBottom = false, 
             borderTop = false,
             titleChidren,
-            childrenClass = "flex-1 overflow-auto px-2"
+            childrenClass = "flex-1 flex flex-col overflow-auto px-2"
         }, 
         ref
     ) => {

@@ -19,7 +19,7 @@ const TimelineKeyframe = ({ id, keyframes }) => {
 }
 
 const TimelineListKeyframes = ({ elements }) => {
-    return useMemo(() => elements.map((el, id) => <TimelineKeyframe key={id} id={id} keyframes={el.keyframes} /> ), [ elements ])
+    return useMemo(() => Object.keys(elements).map((el, id) => <TimelineKeyframe key={id} id={id} keyframes={elements[el].keyframes} /> ), [ elements ])
 }
 
 export default function TimeLineEditor ({ elements }) {
@@ -27,7 +27,7 @@ export default function TimeLineEditor ({ elements }) {
     
     
     const timelineElements = useMemo(() => {
-        return elements.map(( el, id ) => <TimelineElement key={id} {...el} />)
+        return Object.keys(elements).map(( el, id ) => <TimelineElement key={id} {...elements[el]} />)
     }, [ elements ]);
 
     return <Panel ref={thisRef} title={
