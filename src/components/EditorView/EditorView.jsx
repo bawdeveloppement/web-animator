@@ -37,11 +37,13 @@ export const viewElementsState = atom({
             properties: {
                 type: "div",
                 id: "divel",
+                className: "",
                 style: {
-                width: "200px",
-                height: "200px",
-                backgroundColor: "black"
-                }
+                    width: "200px",
+                    height: "200px",
+                    backgroundColor: "black"
+                },
+                
             },
             keyframes: [],
             timing: {}

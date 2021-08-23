@@ -22,12 +22,11 @@ const ListElement = ({ id, name }) => {
     useClick(thisRef, handleClick);
 
     const updateViewItem = useCallback(() => {
-        const newList = replaceItemAtIndex(viewValue, id, {
-            ...viewValue[id],
-            name: inputValue,
+        setViewState((old) => {
+            console.log(old)
+            return { ...old, [`${name}`]: { ...old[`${name}`], name: inputValue }}
         });
-        setViewState(newList);
-    }, [id, inputValue, setViewState, viewValue]);
+    }, [inputValue, name, setViewState]);
 
     useDoubleClick(thisRef, () => {
         setEditMode(!editMode)

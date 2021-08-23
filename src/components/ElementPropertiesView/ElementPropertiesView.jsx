@@ -11,7 +11,6 @@ export default function ElementPropertiesView () {
     }, [currentViewElement])
 
     const handleProp = useCallback(( propName, propValue ) => {
-        console.log(propName, propValue)
         setCurrentElement({ newValueName: currentViewElement.name, newValue: { ...currentViewElement, properties: { ...currentViewElement.properties, style: { ...currentViewElement.properties.style, [`${propName}`]: propValue }  } } })
     }, [currentViewElement, setCurrentElement]);
 
